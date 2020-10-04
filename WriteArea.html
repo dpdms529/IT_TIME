@@ -22,7 +22,7 @@
         float:left,right;
         height:100px;
       }
-      ul li{
+      header ul li{
         float:left;
         list-style-type: none;
         margin:20px;
@@ -30,31 +30,34 @@
         border:3px solid hotpink;
         font-size:25px;
       }
-      .boardSec{
+      .mainSec{
         background-color:pink;
         border:3px solid gray;
         margin:10px;
         padding:10px;
         font-size:20px;
         height:500px;
+        position:static;
       }
-      .boardSec table{
-        font-size:20px;
+      .write input{
+        width:100%
+
       }
-      .selectSec{
-        background-color:pink;
-        border:3px solid gray;
+      .write textarea{
+        width:100%;
+        height:300px;;
+      }
+      .option{
+        position:relative;
+        left:1150px;
+        display:inline;
+      }
+      .option li{
+        float:left;
+        list-style-type:none;
         margin:10px;
-        padding:10px;
-        font-size:20px;
-      }
-      .selectSec li{
-        list-style-type:circle;
-        margin-bottom: 10px;
-      }
-      .mainSec{
-        display:grid;
-        grid-template-columns:300px 2fr;
+        border:3px solid hotpink;
+        background-color:white;
       }
 
     </style>
@@ -81,8 +84,16 @@
       </ul>
     </header>
     <div class="mainSec">
-      
-
+      <form class="write">
+        <p><input name="title" style="font-size:20px;" placeholder="글 제목" class="title"></p>
+        <p><textarea name="text" style="font-size:20px;"></textarea></p>
+        <ul class="option">
+          <li title="해시태그" class="hashtag">해시태그</li>
+          <li title="첨부" class="attach">첨부</li>
+          <li title="익명" class="anonym">익명</li>
+          <li title="완료" class="submit"><a href="QABoard.html">완료</a></li>
+        </ul>
+      </form>
     </div>
   </body>
 </html>
