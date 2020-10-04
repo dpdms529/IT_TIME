@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>게시판-질문</title>
+    <title>게시판-강의평가</title>
     <style>
       body{
         display:grid;
@@ -31,9 +31,10 @@
         font-size:25px;
       }
       article{
+        font-size: 15px;
         border:3px solid hotpink;
         background-color: white;
-        position:static;
+        padding-left: 10px
       }
       .boardSec{
         background-color:pink;
@@ -57,24 +58,6 @@
       .mainSec{
         display:grid;
         grid-template-columns:300px 2fr;
-      }
-      .medium{
-        font-size:20px;
-        margin:15px;
-      }
-      .small{
-        font-size:15px;
-        margin:10px;
-      }
-      .status{
-        display:inline;
-        position:relative;
-        left:1050px;
-      }
-      .status li{
-        float:left;
-        list-style-type: none;
-        margin-left: 10px;
       }
 
     </style>
@@ -109,18 +92,22 @@
         </ol>
       </div>
       <div class="boardSec">
-        <h2>질문 게시판</h2>
+        <h2>강의 평가 게시판</h2>
+        <form class="search">
+          <input type="search" name="keyword" placeholder="과목명, 교수명으로 검색" class="keyword" autocomplete="off" style="width:90%; height:35px; margin:10px;">
+          <input type="submit" class="submit" value="검색" style="width:5%;height:35px;margin-right:10px">
+        </form>
         <div class="board">
           <article>
-            <a class="article" href="">
-              <h3 class="medium">코로나 언제끝나요</h3>
-              <p class="small">학교가고싶어요</p>
-              <time class="small">8분 전</time>
-              <h3 class="small">익명</h3>
-              <ul class="status">
-                <li title="공감" class="vote">👍 3</li>
-                <li title="댓글" class="comment">💬 2</li>
-              </ul>
+            <a href="">
+              <h3>컴퓨터프로그래밍의기초 : 홍득조</h3>
+              <p class="rate">
+                <span class="star">⭐⭐⭐⭐⭐</span>
+              </p>
+              <p class="info">
+                <span class="semester">18년 1학기 수강자</span>
+              </p>
+              <p class="text">책 읽어주는 남자</p>
             </a>
           </article>
         </div>

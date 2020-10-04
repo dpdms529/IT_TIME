@@ -22,18 +22,13 @@
         float:left,right;
         height:100px;
       }
-      header ul li{
+      ul li{
         float:left;
         list-style-type: none;
         margin:20px;
         padding:5px;
         border:3px solid hotpink;
         font-size:25px;
-      }
-      article{
-        border:3px solid hotpink;
-        background-color: white;
-        position:static;
       }
       .boardSec{
         background-color:pink;
@@ -43,6 +38,9 @@
         font-size:20px;
         height:500px;
       }
+      .boardSec table{
+        font-size:20px;
+      }
       .selectSec{
         background-color:pink;
         border:3px solid gray;
@@ -51,30 +49,12 @@
         font-size:20px;
       }
       .selectSec li{
-        list-style-type:none;
+        list-style-type:circle;
         margin-bottom: 10px;
       }
       .mainSec{
         display:grid;
         grid-template-columns:300px 2fr;
-      }
-      .medium{
-        font-size:20px;
-        margin:15px;
-      }
-      .small{
-        font-size:15px;
-        margin:10px;
-      }
-      .status{
-        display:inline;
-        position:relative;
-        left:1050px;
-      }
-      .status li{
-        float:left;
-        list-style-type: none;
-        margin-left: 10px;
       }
 
     </style>
@@ -101,30 +81,8 @@
       </ul>
     </header>
     <div class="mainSec">
-      <div class="selectSec">
-        <h2>게시판</h2>
-        <ol>
-          <li><a href="LectureEvaluationBoard.html">강의 평가 게시판</a></br></li>
-          <li><a href="QABoard.html">질문 게시판</a></li>
-        </ol>
-      </div>
-      <div class="boardSec">
-        <h2>질문 게시판</h2>
-        <div class="board">
-          <article>
-            <a class="article" href="">
-              <h3 class="medium">코로나 언제끝나요</h3>
-              <p class="small">학교가고싶어요</p>
-              <time class="small">8분 전</time>
-              <h3 class="small">익명</h3>
-              <ul class="status">
-                <li title="공감" class="vote">👍 3</li>
-                <li title="댓글" class="comment">💬 2</li>
-              </ul>
-            </a>
-          </article>
-        </div>
-      </div>
+      
+
     </div>
   </body>
 </html>
