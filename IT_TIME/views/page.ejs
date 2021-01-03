@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="/stylesheets/boardStyle.css">
+    <title><%= title %></title>
+</head>
+<body>
+<header>
+    <ul>
+        <li style="margin-right:150px;">IT TIME</li>
+        <li>
+            <a href="">시간표</a>
+        </li>
+        <li>
+            <a href="">과제관리</a>
+        </li>
+        <li>
+            <a href="">게시판</a>
+        </li>
+        <li>
+            <a href="">학점관리</a>
+        </li>
+        <li>
+            <a href="">공지사항</a>
+        </li>
+    </ul>
+</header>
+<div class="mainSec">
+    <div class="selectSec">
+        <h2>게시판</h2>
+        <ol>
+            <li><a href="LectureEvaluationBoard.html">강의 평가 게시판</a></br></li>
+            <li><a href="QABoard.html">질문 게시판</a></li>
+        </ol>
+    </div>
+    <div class="boardSec">
+        <h2><%= title %>></h2>
+        <p><span class="write"><a href="/Q&ABoard/write">글쓰기</a></span></p>
+        <div class="board">
+            <%
+            for(var i = (page * page_num) - page_num; i<(page * page_num);i++){
+                if(i > length){
+                    i++;
+                }else{
+                    var data = rows[i]
+            %>
+            <article>
+                <a class="article" href="/Q&ABoard/read/<%= data.idx %>">
+                    <h3 class="medium"><%= data.title %></h3>
+                    <p class="small"><%= data.content %></p>
+                    <time class="small"><%= data.regdate %></time>
+                    <h3 class="small"><%= data.name %></h3>
+                    <ul class="status">
+                        <li title="공감" class="vote">👍 <%=data.vote%></li>
+                        <li title="댓글" class="comment">💬 <%=data.comment%></li>
+                    </ul>
+                </a>
+            </article>
+            <% }
+            }
+            %>
+        </div>
+        <p><span>
+                <%
+                for(var j = 0;j < rows.length / page_num; j++){
+                %>
+                    [<a href="/Q&ABoard/page/<%= j + 1 %>"><%=j + 1 %></a>]
+                <%
+                }
+                %>
+            </span>
+        </p>
+    </div>
+</div>
+</body>
+</html>
