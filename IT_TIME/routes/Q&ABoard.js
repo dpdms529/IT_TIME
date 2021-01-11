@@ -10,7 +10,7 @@ router.get('/page', function(req, res, next) {
 router.get('/page/:page',function(req,res,next){
     var page = req.params.page;
     var sql = "select idx,title,content,date_format(regdate,'%Y-%m-%d %H:%i:%s') regdate," +
-        "name,vote,comment from `q&aboard`";
+        "name,vote,comment from `q&a_board`";
     conn.query(sql,function(err,rows){
         if(err) console.error("err : " + err);
         res.render('page',{title : '질문 게시판',rows:rows,page:page,length:rows.length-1,page_num:2,pass:true});
