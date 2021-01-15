@@ -28,8 +28,10 @@ header ul li{
 }
 article{
     border:3px solid hotpink;
+    height:150px;
     background-color: white;
     position:static;
+    margin:5px;
 }
 .boardSec{
     grid-area:board;
@@ -38,7 +40,7 @@ article{
     margin:10px;
     padding:10px;
     font-size:20px;
-    height:auto;
+    height:1000px;
 }
 .selectSec{
     grid-area:select;
@@ -47,7 +49,6 @@ article{
     margin:10px;
     padding:10px;
     font-size:20px;
-    height:auto
 }
 .selectSec li{
     list-style-type:none;
@@ -64,8 +65,8 @@ article{
     margin:15px;
 }
 .small{
-    font-size:15px;
-    margin:10px;
+    font-size:12px;
+    margin:15px;
 }
 .status{
     display:inline;
