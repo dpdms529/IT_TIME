@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css'/>
+</head>
+<body>
+<h1><%= title %></h1>
+<a href="/le_board/write">글쓰기</a>
+<table border="1">
+    <tr>
+        <td>번호</td>
+        <td>교수</td>
+        <td>과목명</td>
+        <td>평가점수</td>
+        <td>수정일</td>
+        <td>등록일</td>
+    </tr>
+    <%
+    for(var i = (page * page_num) - page_num; i < (page * page_num); i++){//2페이지면 (2*10)-10=10 10번째 데이터부터 노출
+    if(i > length){
+        i++;
+    }else{
+        var data = rows[i]
+    %>
+    <tr>
+        <td><%= i + 1 %></td>
+        <td><%= data.professor %></td>
+        <td><a href="/le_board/read/<%= data.idx %>"><%= data.subject %></a></td>
+        <td><%= data.point %></td>
+        <td><%= data.modidate %></td>
+        <td><%= data.regdate %></td>
+    </tr>
+    <% }
+    }
+    %>
+    <tr>
+        <td colspan="6">
+            <%
+            for(var j = 0; j < rows.length / page_num; j++){// 총 페이지 계산
+            %>
+            [<a href="/le_board/page/<%= j + 1 %>"><%= j + 1 %></a>]
+            <%
+            }
+            %>
+        </td>
+    </tr>
+</table>
+</body>
+</html>
