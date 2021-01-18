@@ -2,31 +2,50 @@
 <html>
 <head>
     <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css'/>
+    <link rel='stylesheet' href='/stylesheets/le_writeStyle.css'/>
 </head>
 <body>
-<h1><%= title %></h1>
-
+<header>
+    <ul>
+        <li style="margin-right:150px;">IT TIME</li>
+        <li>
+            <a href="">시간표</a>
+        </li>
+        <li>
+            <a href="">과제관리</a>
+        </li>
+        <li>
+            <a href="">게시판</a>
+        </li>
+        <li>
+            <a href="">학점관리</a>
+        </li>
+        <li>
+            <a href="">공지사항</a>
+        </li>
+    </ul>
+</header>
+<div class="mainSec">
 <form action="/le_board/write" method="post">
     <table border="1">
         <tr>
-            <td>교수</td>
+            <td width="10%">교수</td>
             <td><input type="text" name="professor" id="professor" required/></td>
         </tr>
         <tr>
-            <td>과목명</td>
+            <td width="10%">과목명</td>
             <td><input type="text" name="subject" id="subject" required/></td>
         </tr>
         <tr>
-            <td>평가점수</td>
+            <td width="10%">평가점수</td>
             <td><input type="number" name="point" id="point" required/></td>
         </tr>
         <tr>
-            <td>내용</td>
+            <td width="10%">내용</td>
             <td><textarea name="content" id="content" cols="30" rows="10" required></textarea></td>
         </tr>
         <tr>
-            <td>패스워드</td>
+            <td width="10%">패스워드</td>
             <td><input type="password" name="passwd" id="passwd" required/></td>
         </tr>
         <tr>
@@ -36,6 +55,7 @@
         </tr>
     </table>
 </form>
+</div>
 
 
 </body>
