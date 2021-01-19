@@ -4,12 +4,23 @@
     <title>공지사항</title>
 </head>
 <body>
-<h1>제목</h1>
-<p> <%= title %></p>
-<h1>URL</h1>
-<p> <%= url %></p>
-<h1>작성일</h1>
-<p> <%= date %></p>
+<%
+for(var i = 0; i<length;i++){
+if(i > length){
+    i++;
+}else{
+    var data = list[i]
+%>
+
+<article>
+    <h3><%= data.title %></h3>
+    <h3><%= data.url %></h3>
+    <h3><%= data.date %></h3>
+</article>
+
+<% }
+}
+%>
 </body>
 </html>
 

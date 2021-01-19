@@ -5,23 +5,20 @@ const log = console.log;
 var express = require('express');
 var router = express.Router();
 
+const url = "https://it.jbnu.ac.kr/it/9841/subview.do"
 
-
-const getHtml = async () => {
+const getHtml = async (url) => {
     try {
-        return await axios.get("https://it.jbnu.ac.kr/it/9841/subview.do");
+        return await axios.get(url);
     } catch (error) {
         console.error(error);
     }
 };
 
-router.get('/notice', function (req, res, next) {
-getHtml()
+router.get('/', function (req, res, next) {
+getHtml(url)
     .then(html => {
         let ulList = [];
-        let title;
-        let url;
-        let date;
         const $ = cheerio.load(html.data);
         const $bodyList = $("tbody tr");
 
@@ -33,19 +30,11 @@ getHtml()
             };
 
         });
-        return ulList.filter(n => n.title);
+        return ulList
     })
-.then(result => res.render('index', { title: res }));
+.then(result => res.render('notice', { list : result , length : result.length}));
 });
 
 
-router.get('/', function (req, res, next) {
-
-    res.render('notice', {
-        title: getHtml().title,
-        url: getHtml().url,
-        date: getHtml().date
-    });
-});
 
 module.exports = router;
