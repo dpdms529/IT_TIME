@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>공지사항</title>
+</head>
+<body>
+<%
+for(var i = 0; i<length;i++){
+if(i > length){
+    i++;
+}else{
+    var data = list[i]
+%>
+
+<article>
+    <h3><%= data.title %></h3>
+    <h3><%= data.url %></h3>
+    <h3><%= data.date %></h3>
+</article>
+
+<% }
+}
+%>
+</body>
+</html>
+

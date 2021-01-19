@@ -2,49 +2,78 @@
 <html>
 <head>
     <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css'/>
+    <link rel='stylesheet' href='/stylesheets/le_boardStyle.css'/>
 </head>
 <body>
-<h1><%= title %></h1>
-<a href="/le_board/write">글쓰기</a>
-<table border="1">
-    <tr>
-        <td>번호</td>
-        <td>교수</td>
-        <td>과목명</td>
-        <td>평가점수</td>
-        <td>수정일</td>
-        <td>등록일</td>
-    </tr>
-    <%
-    for(var i = (page * page_num) - page_num; i < (page * page_num); i++){//2페이지면 (2*10)-10=10 10번째 데이터부터 노출
-    if(i > length){
-        i++;
-    }else{
-        var data = rows[i]
-    %>
-    <tr>
-        <td><%= i + 1 %></td>
-        <td><%= data.professor %></td>
-        <td><a href="/le_board/read/<%= data.idx %>"><%= data.subject %></a></td>
-        <td><%= data.point %></td>
-        <td><%= data.modidate %></td>
-        <td><%= data.regdate %></td>
-    </tr>
-    <% }
-    }
-    %>
-    <tr>
-        <td colspan="6">
+<header>
+    <ul>
+        <li style="margin-right:150px;">IT TIME</li>
+        <li>
+            <a href="">시간표</a>
+        </li>
+        <li>
+            <a href="">과제관리</a>
+        </li>
+        <li>
+            <a href="">게시판</a>
+        </li>
+        <li>
+            <a href="">학점관리</a>
+        </li>
+        <li>
+            <a href="">공지사항</a>
+        </li>
+    </ul>
+</header>
+<div class="mainSec">
+    <div class="selectSec">
+        <h2>게시판</h2>
+        <ol>
+            <li><a href="/le_board">강의 평가 게시판</a><br></li>
+            <li><a href="/">질문 게시판</a></li>
+        </ol>
+    </div>
+    <div class="boardSec">
+        <h2><%= title %></h2>
+        <p><span class="write"><a href="/le_board/write">글쓰기</a></span></p>
+        <p><span>
+                <%
+                for(var j = 0; j < rows.length / page_num; j++){// 총 페이지 계산
+                %>
+                [<a href="/le_board/page/<%= j + 1 %>"><%= j + 1 %></a>]
+                <%
+                }
+                %>
+            </span>
+        </p>
+        <div class="board">
             <%
-            for(var j = 0; j < rows.length / page_num; j++){// 총 페이지 계산
+            for(var i = (page * page_num) - page_num; i < (page * page_num); i++){//2페이지면 (2*10)-10=10 10번째 데이터부터 노출
+            if(i > length){
+                i++;
+            }else{
+                var data = rows[i]
             %>
-            [<a href="/le_board/page/<%= j + 1 %>"><%= j + 1 %></a>]
-            <%
+            <article>
+                <a class="article" href="/le_board/read/<%= data.idx %>">
+                    <h3 class="medium"><%= data.subject %></h3>
+                    <h3 class="small"><%= data.professor %></h3>
+                    <h3 class="small"><%= data.regdate %></h3>
+                    <ul class="status">
+                        <%
+                        for(var j = 0; j< data.point; j++){
+                        %>
+                        <li title="별점" class="star">⭐</li>
+                        <%
+                        }%>
+                    </ul>
+                </a>
+            </article>
+            <% }
             }
             %>
-        </td>
-    </tr>
-</table>
+        </div>
+    </div>
+</div>
 </body>
 </html>

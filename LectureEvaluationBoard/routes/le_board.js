@@ -3,9 +3,6 @@ var router = express.Router();
 var mysql_odbc = require('../db/db_conn')();
 var conn = mysql_odbc.init();
 
-router.get('/', function(req, res, next) {
-    res.redirect('/le_board/page/1');
-});
 router.get('/page', function(req, res, next) {
     res.redirect('/le_board/page/1');
 });
@@ -25,7 +22,7 @@ router.get('/page/:page',function(req,res,next)
 module.exports = router;
 
 router.get('/write', function(req,res,next){
-    res.render('write',{title : "강의평가 글쓰기"});
+    res.render('write_le_board',{title : "강의평가 글쓰기"});
 });
 
 router.post('/write', function(req,res,next){
@@ -51,7 +48,7 @@ router.get('/read/:idx',function(req,res,next)
     conn.query(sql,[idx], function(err,row)
     {
         if(err) console.error(err);
-        res.render('read', {title:"평가 상세", row:row[0]});
+        res.render('read_le_board', {title:"평가 상세", row:row[0]});
     });
 });
 
