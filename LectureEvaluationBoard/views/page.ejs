@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/le_boardStyle.css'/>
+</head>
+<body>
+<header>
+    <ul>
+        <li style="margin-right:150px;">IT TIME</li>
+        <li>
+            <a href="">시간표</a>
+        </li>
+        <li>
+            <a href="">과제관리</a>
+        </li>
+        <li>
+            <a href="">게시판</a>
+        </li>
+        <li>
+            <a href="">학점관리</a>
+        </li>
+        <li>
+            <a href="">공지사항</a>
+        </li>
+    </ul>
+</header>
+<div class="mainSec">
+    <div class="selectSec">
+        <h2>게시판</h2>
+        <ol>
+            <li><a href="/le_board">강의 평가 게시판</a><br></li>
+            <li><a href="/">질문 게시판</a></li>
+        </ol>
+    </div>
+    <div class="boardSec">
+        <h2><%= title %></h2>
+        <p><span class="write"><a href="/le_board/write">글쓰기</a></span></p>
+        <p><span>
+                <%
+                for(var j = 0; j < rows.length / page_num; j++){// 총 페이지 계산
+                %>
+                [<a href="/le_board/page/<%= j + 1 %>"><%= j + 1 %></a>]
+                <%
+                }
+                %>
+            </span>
+        </p>
+        <div class="board">
+            <%
+            for(var i = (page * page_num) - page_num; i < (page * page_num); i++){//2페이지면 (2*10)-10=10 10번째 데이터부터 노출
+            if(i > length){
+                i++;
+            }else{
+                var data = rows[i]
+            %>
+            <article>
+                <a class="article" href="/le_board/read/<%= data.idx %>">
+                    <h3 class="medium"><%= data.subject %></h3>
+                    <h3 class="small"><%= data.professor %></h3>
+                    <h3 class="small"><%= data.regdate %></h3>
+                    <ul class="status">
+                        <%
+                        for(var j = 0; j< data.point; j++){
+                        %>
+                        <li title="별점" class="star">⭐</li>
+                        <%
+                        }%>
+                    </ul>
+                </a>
+            </article>
+            <% }
+            }
+            %>
+        </div>
+    </div>
+</div>
+</body>
+</html>
