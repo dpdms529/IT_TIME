@@ -1,8 +1,0 @@
-{
-  "dependencies": {
-    "axios": "^0.21.1",
-    "cheerio": "^1.0.0-rc.5",
-    "passport": "^0.4.1",
-    "passport-kakao": "^1.0.0"
-  }
-}
