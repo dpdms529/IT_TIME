@@ -17,7 +17,7 @@ router.get('/page_q&a_board/:page',function(req,res,next){
         "name,vote,comment from `q&a_board`";
     conn.query(sql,function(err,rows){
         if(err) console.error("err : " + err);
-        res.render('page_q&a_board',{title : '질문 게시판',rows:rows,page:page,length:rows.length-1,page_num:5,pass:true});
+        res.render('page_q&a_board',{title : '질문 게시판',rows:rows,page:page,length:rows.length-1,page_num:10,pass:true});
         console.log(rows.length-1);
     });
 

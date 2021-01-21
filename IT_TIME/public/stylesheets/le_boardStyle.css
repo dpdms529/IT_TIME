@@ -28,7 +28,7 @@ header ul li{
 }
 article{
     border:3px solid hotpink;
-    height:150px;
+    height:auto;
     background-color: white;
     position:static;
     margin:5px;
@@ -61,11 +61,11 @@ article{
     grid-template-columns:300px 2fr;
 }
 .medium{
-    font-size:20px;
+    font-size:25px;
     margin:15px;
 }
 .small{
-    font-size:12px;
+    font-size:15px;
     margin:15px;
 }
 .status{
@@ -75,7 +75,7 @@ article{
 .status li{
     float:right;
     list-style-type: none;
-    margin-right: 15px;
+    padding-right: 15px;
 }
 .write{
     border:3px solid hotpink;

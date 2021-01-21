@@ -75,7 +75,7 @@ article{
 .status li{
     float:right;
     list-style-type: none;
-    margin-right: 15px;
+    padding-right: 15px;
     font-size:20px;
 }
 .write{
