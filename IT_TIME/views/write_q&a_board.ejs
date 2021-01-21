@@ -8,26 +8,19 @@
 <body>
 <header>
     <ul>
-        <li style="margin-right:150px;">IT TIME</li>
-        <li>
-            <a href="">시간표</a>
+        <li style="margin-right:150px;">
+            <a href="/">IT TIME</a>
         </li>
         <li>
-            <a href="">과제관리</a>
+            <a href="/Q&ABoard">게시판</a>
         </li>
         <li>
-            <a href="">게시판</a>
-        </li>
-        <li>
-            <a href="">학점관리</a>
-        </li>
-        <li>
-            <a href="">공지사항</a>
+            <a href="/notice">공지사항</a>
         </li>
     </ul>
 </header>
 <div class="mainSec">
-    <form action="/Q&ABoard/write" method="post">
+    <form action="/Q&ABoard/write_q&a_board" method="post">
         <table>
             <tr>
                 <td><input type="text" name="title" id="title" class="write"  placeholder="글 제목" required/></td>

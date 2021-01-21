@@ -7,26 +7,19 @@
 <body>
 <header>
     <ul>
-        <li style="margin-right:150px;">IT TIME</li>
-        <li>
-            <a href="">시간표</a>
+        <li style="margin-right:150px;">
+            <a href="/">IT TIME</a>
         </li>
         <li>
-            <a href="">과제관리</a>
+            <a href="/Q&ABoard">게시판</a>
         </li>
         <li>
-            <a href="">게시판</a>
-        </li>
-        <li>
-            <a href="">학점관리</a>
-        </li>
-        <li>
-            <a href="">공지사항</a>
+            <a href="/notice">공지사항</a>
         </li>
     </ul>
 </header>
 <div class="mainSec">
-<form action="/le_board/update" method="post">
+<form action="/le_board/update_le_board" method="post">
     <table border="1">
         <input type="hidden" name="idx" value="<%=row.idx%>"/>
         <tr>
@@ -61,8 +54,8 @@
         <tr>
             <td colspan="2">
                 <button type="submit">평가수정</button>
-                <button type = "submit" formaction="/le_board/delete">평가삭제</button>
-                <a href="/le_board/page" id="list">목록</a>
+                <button type = "submit" formaction="/le_board/delete_le_board">평가삭제</button>
+                <a href="/le_board/page_le_board" id="list">목록</a>
             </td>
         </tr>
     </table>

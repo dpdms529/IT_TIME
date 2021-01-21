@@ -8,21 +8,14 @@
 <body>
 <header>
     <ul>
-        <li style="margin-right:150px;">IT TIME</li>
-        <li>
-            <a href="">시간표</a>
+        <li style="margin-right:150px;">
+            <a href="/">IT TIME</a>
         </li>
         <li>
-            <a href="">과제관리</a>
+            <a href="/Q&ABoard">게시판</a>
         </li>
         <li>
-            <a href="">게시판</a>
-        </li>
-        <li>
-            <a href="">학점관리</a>
-        </li>
-        <li>
-            <a href="">공지사항</a>
+            <a href="/notice">공지사항</a>
         </li>
     </ul>
 </header>
@@ -30,18 +23,18 @@
     <div class="selectSec">
         <h2>게시판</h2>
         <ol>
-            <li><a href="LectureEvaluationBoard.html">강의 평가 게시판</a></br></li>
             <li><a href="/Q&ABoard">질문 게시판</a></li>
+            <li><a href="/le_board">강의 평가 게시판</a><br></li>
         </ol>
     </div>
     <div class="boardSec">
         <h2><%= title %></h2>
-        <p><span class="write"><a href="/Q&ABoard/write">글쓰기</a></span></p>
+        <p><span class="write"><a href="/Q&ABoard/write_q&a_board">글쓰기</a></span></p>
         <p><span>
                 <%
                 for(var j = 0;j < rows.length / page_num; j++){
                 %>
-                    [<a href="/Q&ABoard/page/<%= j + 1 %>"><%=j + 1 %></a>]
+                    [<a href="/Q&ABoard/page_q&a_board/<%= j + 1 %>"><%=j + 1 %></a>]
                 <%
                 }
                 %>
@@ -56,7 +49,7 @@
                     var data = rows[i]
             %>
             <article>
-                <a class="article" href="/Q&ABoard/read/<%= data.idx %>">
+                <a class="article" href="/Q&ABoard/read_q&a_board/<%= data.idx %>">
                     <h3 class="medium"><%= data.title %></h3>
                     <h3 class="small"><%= data.name %></h3>
                     <h3 class="small"><%= data.regdate %></h3>
