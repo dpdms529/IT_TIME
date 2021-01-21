@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/le_readStyle.css'/>
+</head>
+<body>
+<header>
+    <ul>
+        <li style="margin-right:150px;">
+            <a href="/">IT TIME</a>
+        </li>
+        <li>
+            <a href="/Q&ABoard">게시판</a>
+        </li>
+        <li>
+            <a href="/notice">공지사항</a>
+        </li>
+    </ul>
+</header>
+<div class="mainSec">
+<form action="/le_board/update_le_board" method="post">
+    <table border="1">
+        <input type="hidden" name="idx" value="<%=row.idx%>"/>
+        <tr>
+            <td width="10%">교수</td>
+            <td><input type="text" name="professor" id="professor" value="<%=row.professor%>" required/></td>
+        </tr>
+        <tr>
+            <td width="10%">과목명</td>
+            <td><input type="text" name="subject" id="subject" value="<%=row.subject%>" required/></td>
+        </tr>
+        <tr>
+            <td width="10%">강의평가</td>
+            <td><textarea name="content" id="content" cols="30" rows="10" required><%=row.content%></textarea></td>
+        </tr>
+        <tr>
+            <td width="10%">평가점수</td>
+            <td><input type="number" name="point" id="point" value="<%=row.point%>" required/></td>
+        </tr>
+        <tr>
+            <td width="10%">패스워드</td>
+            <td><input type="password" name="passwd" id="passwd" required/></td>
+        </tr>
+        <tr>
+            <td width="10%">변경일</td>
+            <td><%=row.modidate%></td>
+        </tr>
+        <tr>
+            <td width="10%">등록일</td>
+            <td><%=row.regdate%></td>
+        </tr>
+
+        <tr>
+            <td colspan="2">
+                <button type="submit">평가수정</button>
+                <button type = "submit" formaction="/le_board/delete_le_board">평가삭제</button>
+                <a href="/le_board/page_le_board" id="list">목록</a>
+            </td>
+        </tr>
+    </table>
+</form>
+</div>
+
+</body>
+</html>

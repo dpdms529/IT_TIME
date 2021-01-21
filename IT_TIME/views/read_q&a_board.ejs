@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="/stylesheets/readStyle.css">
+    <title><%= title %></title>
+</head>
+<body>
+<header>
+    <ul>
+        <li style="margin-right:150px;">
+            <a href="/">IT TIME</a>
+        </li>
+        <li>
+            <a href="/Q&ABoard">게시판</a>
+        </li>
+        <li>
+            <a href="/notice">공지사항</a>
+        </li>
+    </ul>
+</header>
+<div class="mainSec">
+    <form method="post">
+        <table>
+            <input type="hidden" name="idx" value="<%=row.idx%>"/>
+            <tr>
+                <td>작성자</td>
+                <td><input type="text" name="name" id="name" class="read" value="<%=row.name%>" required/></td>
+            </tr>
+            <tr>
+                <td>제목</td>
+                <td><input type="text" name="title" id="title" class="read" value="<%=row.title%>" required/></td>
+            </tr>
+            <tr>
+                <td>내용</td>
+                <td><textarea name="content" id="content" class="read" required><%=row.content%></textarea></td>
+            </tr>
+            <tr>
+                <td>패스워드</td>
+                <td><input type="password" name="passwd" id="passwd" class="read" required/></td>
+            </tr>
+            <tr>
+                <td>변경일</td>
+                <td><%=row.modidate%></td>
+            </tr>
+            <tr>
+                <td>등록일</td>
+                <td><%=row.regdate%></td>
+            </tr>
+            <tr>
+                <td>추천수</td>
+                <td><%=row.vote%></td>
+            </tr>
+        </table>
+        </table>
+        <p>
+            <button type="submit" formaction="/Q&ABoard/update_q&a_board">글 수정</button>
+            <button type="submit" formaction="/Q&ABoard/delete_q&a_board">글 삭제</button>
+            <a href="/Q&ABoard" id="list">목록</a>
+        </p>
+    </form>
+</div>
+</body>
+</html>
