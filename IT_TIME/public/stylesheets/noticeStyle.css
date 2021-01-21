@@ -63,7 +63,7 @@ header ul li{
 
 article{
     border:3px solid hotpink;
-    height:200px;
+    height:auto;
     background-color: white;
     position:static;
     margin:5px;
