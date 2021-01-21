@@ -10,9 +10,7 @@ a{
     text-decoration:none;
 }
 h2{
-    text-align: left;
-    margin:40px;
-    display:inline;
+    text-align: center;
 }
 header{
     grid-area:hd;
@@ -58,7 +56,8 @@ header ul li{
     border:3px solid hotpink;
     width: 90%;
     height:auto;
-    margin:70px;
+    margin-top:150px;
+    margin-left:70px;
 }
 
 article{
