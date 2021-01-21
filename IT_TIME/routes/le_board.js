@@ -3,29 +3,33 @@ var router = express.Router();
 var mysql_odbc = require('../db/db_conn')();
 var conn = mysql_odbc.init();
 
-router.get('/page', function(req, res, next) {
-    res.redirect('/le_board/page/1');
+router.get('/',function(req,res,next){
+    res.redirect('/le_board/page_le_board/1');
 });
 
-router.get('/page/:page',function(req,res,next)
+router.get('/page_le_board', function(req, res, next) {
+    res.redirect('/le_board/page_le_board/1');
+});
+
+router.get('/page_le_board/:page',function(req,res,next)
 {
     var page = req.params.page;
     var sql = "select idx, professor, subject, date_format(modidate,'%Y-%m-%d %H:%i:%s') modidate, " +
         "date_format(regdate,'%Y-%m-%d %H:%i:%s') regdate, point from le_board";
     conn.query(sql, function (err, rows) {
         if (err) console.error("err : " + err);
-        res.render('page', {title: '강의 평가 게시판', rows: rows, page:page, length:rows.length-1, page_num:10, pass:true});
+        res.render('page_le_board', {title: '강의 평가 게시판', rows: rows, page:page, length:rows.length-1, page_num:10, pass:true});
         console.log(rows.length-1);
     });
 });
 
 module.exports = router;
 
-router.get('/write', function(req,res,next){
+router.get('/write_le_board', function(req,res,next){
     res.render('write_le_board',{title : "강의평가 글쓰기"});
 });
 
-router.post('/write', function(req,res,next){
+router.post('/write_le_board', function(req,res,next){
     var professor = req.body.professor;
     var subject = req.body.subject;
     var content = req.body.content;
@@ -36,11 +40,11 @@ router.post('/write', function(req,res,next){
     var sql = "insert into le_board(professor, subject, content, regdate, modidate, passwd, point) values(?,?,?,now(),now(),?,?)";
     conn.query(sql,datas, function (err, rows) {
         if (err) console.error("err : " + err);
-        res.redirect('/le_board/page');
+        res.redirect('/le_board/page_le_board');
     });
 });
 
-router.get('/read/:idx',function(req,res,next)
+router.get('/read_le_board/:idx',function(req,res,next)
 {
     var idx = req.params.idx;
     var sql = "select idx, subject, professor, content, date_format(modidate,'%Y-%m-%d %H:%i:%s') modidate, " +
@@ -52,7 +56,7 @@ router.get('/read/:idx',function(req,res,next)
     });
 });
 
-router.post('/update',function(req,res,next)
+router.post('/update_le_board',function(req,res,next)
 {
     var idx = req.body.idx;
     var professor = req.body.professor;
@@ -72,12 +76,12 @@ router.post('/update',function(req,res,next)
         }
         else
         {
-            res.redirect('/le_board/read/'+idx);
+            res.redirect('/le_board/read_le_board/'+idx);
         }
     });
 });
 
-router.post('/delete',function(req,res,next)
+router.post('/delete_le_board',function(req,res,next)
 {
     var idx = req.body.idx;
     var passwd = req.body.passwd;
@@ -93,7 +97,7 @@ router.post('/delete',function(req,res,next)
         }
         else
         {
-            res.redirect('/le_board/page/');
+            res.redirect('/le_board/page_le_board/');
         }
     });
 });
