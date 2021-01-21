@@ -76,7 +76,7 @@ router.post('/update_le_board',function(req,res,next)
         }
         else
         {
-            res.redirect('/le_board/read_le_board/'+idx);
+            res.redirect('/le_board/page_le_board/');
         }
     });
 });

@@ -43,11 +43,17 @@ router.post('/write_q&a_board',function(req,res,next){
 
 router.get('/read_q&a_board/:idx',function(req,res,next) {
     var idx = req.params.idx;
-    var sql = "select idx, name, title, content, date_format(modidate,'%Y-%m-%d %H:%i:%s') modidate, " +
-        "date_format(regdate,'%Y-%m-%d %H:%i:%s') regdate,vote from `q&a_board` where idx=?";
-    conn.query(sql, [idx], function (err, row) {
-        if (err) console.error(err);
-        res.render('read_q&a_board', {title: "글 상세", row: row[0]});
+    var sql = "update `q&a_board` set vote=vote+1 where idx=?"
+    conn.query(sql,[idx],function(err,result){
+        if(err) console.error(err);
+        else{
+            sql = "select idx, name, title, content, date_format(modidate,'%Y-%m-%d %H:%i:%s') modidate, " +
+                "date_format(regdate,'%Y-%m-%d %H:%i:%s') regdate,vote from `q&a_board` where idx=?";
+            conn.query(sql,[idx],function(err,row){
+                if (err) console.error(err);
+                res.render('read_q&a_board', {title: "글 상세", row: row[0]});
+            });
+        }
     });
 });
 
